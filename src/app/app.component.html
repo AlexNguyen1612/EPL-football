@@ -1,0 +1,14 @@
+<div id = "logo" align = "center"><a routerLink = "/news"><img src = "assets/images/Logo.png" width ="100" height ="60"/></a></div>
+
+<div align = "center">
+<ul class ="nav nav-tabs justify-content-center">
+    <li class = "nav-item"><a class = "nav-link" routerLink = "/news" routerLinkActive ="active current">News</a></li>
+    <li class = "nav-item"><a class = "nav-link" routerLink = "/TeamInfo" routerLinkActive ="active current">Team Info</a></li>
+    <li class = "nav-item"><a class = "nav-link" routerLink = "/Matches&Results" routerLinkActive ="active current">Matches &amp; Results</a></li>
+    <li class = "nav-item"><a class = "nav-link" routerLink = "/Table" routerLinkActive ="active current">League Table</a></li>
+</ul>
+</div>
+
+<main class="route-container" [@routerTransition] = "getState(state)">
+<router-outlet #state="outlet"></router-outlet>
+</main>

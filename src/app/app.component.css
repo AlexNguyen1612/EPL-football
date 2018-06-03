@@ -1,0 +1,21 @@
+/*css*/
+#logo {
+ margin: 5px;
+}
+
+.route-container {
+    position:relative;
+}
+.route-container>* {
+    display:block;
+}
+
+.nav {
+ margin-bottom: 50px;
+ width: 1100px;
+ background-color: #7647a2;
+}
+
+.nav-link {
+ color: white;
+}

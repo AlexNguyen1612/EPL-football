@@ -1,0 +1,107 @@
+<div class="container">
+	<div class="row">
+		
+		<div class="col-sm-5" align="center" *ngIf="match">
+			
+			<nav>
+				<ul class="test" align="center">
+					<span *ngFor="let teams of sequence">
+						<li class="card" (click)="getMatchDay(teams)" align="center"> Matchday {{teams}} </li>
+					</span>
+				</ul>
+			</nav>
+
+			<div align="center" id="matchDay"> <h4> Matchday {{match}} </h4></div>
+			<table class="table">
+				
+				<tbody>
+					<tr class="d-flex" *ngFor="let t of fixtures?.fixtures; let i = index" (click)="getFixture(t._links.self.href)" align="center" style="cursor: pointer;">
+							
+						<div *ngFor="let t1 of team?.teams; let i1 = index;">
+							<span *ngIf="t1.name == t.awayTeamName">
+								{{getACrest(t1.crestUrl)}} {{getSNA(t1.shortName)}}
+							</span>
+						</div>
+
+						<div *ngFor="let t2 of team?.teams; let i2 = index;">
+							<span *ngIf="t2.name == t.homeTeamName"> 
+								{{getHCrest(t2.crestUrl)}} {{getSNH(t2.shortName)}} 
+							</span>
+						</div>
+
+						<td align="left" class="col-sm-2" *ngIf="match*10-10 <= i && i <= match*10-1" margin-right="100">
+							<img src="{{crestH}}" width="35" height="35"/>
+						</td>
+						
+						<td align="left" class="col-sm-3" *ngIf="match*10-10 <= i && i <= match*10-1"> {{snameH}} </td>
+							
+						<td align="right" class="col-sm-1" *ngIf=" match*10-10 <= i && i <= match*10-1"> {{t.result.goalsHomeTeam}} </td>
+
+						<td align="left" class="col-sm-1" *ngIf=" match*10-10 <= i && i <= match*10-1"> {{t.result.goalsAwayTeam}} </td>
+
+						<td align="right" class="col-sm-3" *ngIf="match*10-10 <= i && i <= match*10-1"> {{snameA}} </td>
+		
+						<td align="right" class="col-sm-2" *ngIf="match*10-10 <= i && i <= match*10-1">
+							<img src="{{crestA}}" width="35" height="35"/>
+						</td>
+													
+						</tr>
+				</tbody>
+			</table>
+
+			<div align="center" id="mostGoals"> 
+				<h4> Most goals matches</h4>
+			</div>
+
+			<div *ngFor="let fixture of fixtures?.fixtures; let i = index">
+				{{totalGoals(fixture.result.goalsHomeTeam+fixture.result.goalsAwayTeam)}}
+			</div>
+
+			<div align="center" *ngFor="let fixture of fixtures?.fixtures; let i = index">
+				<div *ngIf="(fixture.result.goalsHomeTeam+fixture.result.goalsAwayTeam) == total">
+					<div *ngFor="let t of team?.teams; let i1 = index;">
+						<span *ngIf="t.name == fixture.awayTeamName">
+							{{getACrest(t.crestUrl)}} {{getSNA(t.shortName)}}
+						</span>
+					</div>
+
+					<div *ngFor="let t of team?.teams; let i4 = index;">
+						<span *ngIf="t.name == fixture.homeTeamName"> 
+							{{getSNH(t.shortName)}} {{getHCrest(t.crestUrl)}} 
+						</span>
+					</div>
+
+					<h5> Matchday {{fixture.matchday}} - {{fixture.date | slice: 0: 10}} </h5>
+					
+					<div class="row">
+
+						<div align="left" class="col-sm-2">
+							<img src="{{crestH}}" width="35" height="35"/>
+						</div>
+
+						<div align="left" class="col-sm-3"> {{snameH}} </div>
+									
+						<div align="right" class="col-sm-1"> {{fixture.result.goalsHomeTeam}} </div>
+
+						<div align="left" class="col-sm-1"> {{fixture.result.goalsAwayTeam}} </div>
+
+						<div align="right" class="col-sm-3"> {{snameA}} </div>
+
+						<div align="right" class="col-sm-2">
+							<img src="{{crestA}}" width="35" height="35"/>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="col-sm-7" align="center">
+			<app-detail [selectedFixture]="fixture" [selectedTeam]="team"></app-detail>
+		</div>
+	</div>
+</div>
+
+
+
+

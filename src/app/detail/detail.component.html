@@ -1,0 +1,59 @@
+
+<div class="container">
+	<div class="container-fluid" style="background-color: #663399; color: white">
+		<div *ngIf="selectedFixture">
+			
+			<div class="row">
+				<div class="col-sm-4">
+					<div *ngFor="let t1 of selectedTeam?.teams; let i1 = index;">
+						<div *ngIf="t1.name==selectedFixture.fixture.homeTeamName">
+							<img src="{{t1.crestUrl}}" width="125" height="125"/> 
+							<h5> {{t1.shortName}} </h5>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<br>
+					<div> <h6>Matchday {{selectedFixture.fixture.matchday}}</h6> </div>
+					<div> <h1> {{selectedFixture.fixture.result.goalsHomeTeam}} - {{selectedFixture.fixture.result.goalsAwayTeam}} </h1></div>
+					<div> <h5> {{selectedFixture.fixture.date | slice: 0: 10}} </h5> </div>
+				</div>
+				
+				<div class="col-sm-4">
+					<div *ngFor="let t1 of selectedTeam?.teams; let i1 = index;">
+						<div *ngIf="t1.name==selectedFixture.fixture.awayTeamName">
+							<img src="{{t1.crestUrl}}" width="125" height="125"/> 
+							<h5> {{t1.shortName}} </h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container-fluid">
+		<div *ngIf="selectedFixture">
+			<div> <h1> IN THIS SEASON </h1> </div>
+				
+			<div *ngFor="let t of selectedFixture.head2head.fixtures; let i = index">
+				<div *ngIf="i<2">
+					<div> {{t.date | slice: 0: 10}} </div>
+					<div *ngFor="let t1 of selectedTeam?.teams">
+						<div *ngFor="let t2 of selectedTeam?.teams">
+							<div *ngIf="t1.name == t.awayTeamName && t2.name == t.homeTeamName"> 
+								{{t2.shortName}}  {{t.result.goalsHomeTeam}} - {{t.result.goalsAwayTeam}}  {{t1.shortName}}
+							</div> 
+						</div>
+					</div>
+					<br>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

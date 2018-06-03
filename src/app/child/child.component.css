@@ -1,0 +1,43 @@
+th {
+	/*background-color: purple;*/
+	background-color: #38003C;
+	color: white;
+}
+
+#results {
+	background-color: #38003C;
+	color: white;
+	line-height: 50px;
+}
+
+/*.row {
+	margin-bottom: 7px;
+}
+
+#col {
+	line-height: 30px;
+}*/
+
+#banner {
+	position: relative;
+}
+
+#banner_text {
+position: absolute;
+ top: 50%;
+ left: 10%;
+ color: white;
+ font-size: 40px;
+ font-weight: 500;
+ font-family:serif;
+}
+
+#gi {
+	line-height: 50px;
+}
+
+#col {
+	display: inline-grid;
+	line-height: 30px;
+	margin-bottom: 3px;
+}

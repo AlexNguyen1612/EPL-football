@@ -1,0 +1,156 @@
+<div id="ChildDiv">
+	<div *ngIf="team">
+		<br><br>
+		<div class="container">
+
+		<div id="banner" align="center">
+            <img src = "assets/images/banner.png" width = "100%"/>
+            <h4 id="banner_text"> Team Info </h4> 
+        </div>
+		<br><br>
+			<div align="center"><h4> General Info </h4></div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="text-center" scope="col">Team Name </th>
+						<th class="text-center" scope="col">Team Code </th>
+						<th class="text-center" scope="col">Short Name </th>
+						<th class="text-center" scope="col">Team Crest </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" id="gi"> {{team.name}} </td>
+						<td align="center" id="gi"> {{team.code}} </td>
+						<td align="center" id="gi"> {{team.shortName}} </td>
+						<td align="center"> <img src="{{team.crestUrl}}" width="60" height="60" display="block" margin-left="300"/> </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<br><br>
+
+		<div class="container">
+		<div align="center"><h4> Current Ranking </h4></div>
+		<div *ngFor="let standing of standings?.standing">
+			<div *ngIf="team.name == standing.teamName">
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="text-center" scope="col">Position</th>
+						<th class="text-center" scope="col">PL</th>
+						<th class="text-center" scope="col">GF</th>
+						<th class="text-center" scope="col">GA</th>
+						<th class="text-center" scope="col">GD</th>
+						<th class="text-center" scope="col">Pts</th>
+						<th class="text-center" scope="col">Wins</th>
+						<th class="text-center" scope="col">Draws</th>
+						<th class="text-center" scope="col">Losses</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center">{{standing.position}}</td>
+						<td align="center">{{standing.playedGames}}</td>
+						<td align="center">{{standing.goals}}</td>
+						<td align="center">{{standing.goalsAgainst}}</td>
+						<td align="center">{{standing.goalDifference}}</td>
+						<td align="center">{{standing.points}}</td>
+						<td align="center">{{standing.wins}}</td>
+						<td align="center">{{standing.draws}}</td>
+						<td align="center">{{standing.losses}}</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>	
+		</div>
+		</div>
+		<br><br>
+
+		<div>{{onSelectPlayers(team._links.players.href, team._links.fixtures.href)}}</div>
+
+		<div class="container">
+			<div align="center"><h4> Players Info </h4></div>
+			<table class="table table-striped">
+				<thead>
+					<tr><th class="text-center" scope="col">#</th>
+						<th class="text-center" scope="col">Player Name </th>
+						<th class="text-center" scope="col">Position </th>
+						<th class="text-center" scope="col">Number </th>
+						<th class="text-center" scope="col">DOB </th>
+						<th class="text-center" scope="col">Nationality </th>
+						<th class="text-center" scope="col">Contract Until</th>
+					</tr>
+				</thead>
+
+				<tbody>
+				<tr class="player" *ngFor="let player of players?.players; let i = index ">
+					<td class="text-center" scope="row">{{i+1}}</td>
+					<td align="center">{{player.name}}</td>
+					<td align="center">{{player.position}}</td>
+					<td align="center">{{player.jerseyNumber}}</td>
+					<td align="center">{{player.dateOfBirth}}</td>
+					<td align="center">{{player.nationality}}</td>
+					<td align="center">{{player.contractUntil}}</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<br><br>
+
+		<div class="container-fluid">
+			<h4 align="center" id="results"> Results </h4>
+			<div *ngFor="let fixture of fixtures?.fixtures; let i = index ">
+		
+				<div *ngIf="substr(fixture._links.competition.href) == 445">
+				<div class="row">
+					<div id="col" align = "left" class="col-md-1" style="background-color: lightgrey">{{fixture.matchday}}</div>
+
+					<div class="col-md-3" align = "right" *ngIf="team.name == fixture.homeTeamName">
+						<div id="col" style="background-color: white"> <b>{{fixture.homeTeamName}}</b>
+						</div>
+					</div>
+
+					<div class="col-md-3" align = "right" *ngIf="team.name != fixture.homeTeamName">
+						<div id="col" style="background-color: white">{{fixture.homeTeamName}}</div>
+					</div>
+
+					<div *ngFor="let team1 of teams?.teams; let j1 = index ">
+					<div *ngIf=" team1.name == fixture.homeTeamName">
+					<div align = "center" class="col-md-1" style="background-color: white"> <span> <img src="{{team1.crestUrl}}"  width="30" height="30" /> </span> </div>
+					</div>
+					</div>
+					
+					<div id="col" align = "center" class="col-md-3" height="50" style="background-color: lightgrey">{{fixture.result.goalsHomeTeam}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{fixture.result.goalsAwayTeam}}</div>
+
+					<div *ngFor="let team2 of teams?.teams; let j2 = index ">
+					<div *ngIf=" team2.name == fixture.awayTeamName">
+					<div align = "center" class="col-md-1" style="background-color: white"> <span> <img src="{{team2.crestUrl}}"  width="30" height="30" /> </span> </div>
+					</div>
+					</div>
+
+					<div align = "left" class="col-md-3" *ngIf="team.name == fixture.awayTeamName">
+						<div id="col" style="background-color: white"> <b>{{fixture.awayTeamName}}</b>
+						</div>
+					</div>
+
+					<div align = "left" class="col-md-3" *ngIf="team.name != fixture.awayTeamName">
+						<div id="col" style="background-color: white">{{fixture.awayTeamName}}</div>
+					</div>
+
+					<div id = "col" align = "center" class="col-md-1" style="background-color: white"></div>
+				
+				</div>
+				</div>
+				
+			</div>
+			<br>
+		</div>
+
+
+
+	</div>
+	
+</div>

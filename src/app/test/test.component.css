@@ -1,0 +1,30 @@
+.test {
+	height: 60px;
+		
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+	padding-top: 2px;
+	padding-right: 1px;
+	direction:rtl;
+
+}
+
+.card {
+	display: inline-block;
+	width: 107.5px;
+	height: 55px;
+	cursor: pointer;
+	background-color: #9b42f4;
+    color: white;
+}
+
+#mostGoals, #matchDay {
+	background-color: #38003C; 
+	color: white;
+}
+
+#matchDay {
+ height:50px;
+ padding: 10px;
+}

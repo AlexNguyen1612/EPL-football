@@ -1,0 +1,28 @@
+<div id="ParentDiv">
+ 	<br>
+ 	<div align="center">
+		<ul>
+			<li class="items" *ngFor="let team of teams?.teams" (click)="onSelect(team)"> <span> <img class="pointer" src="{{team.crestUrl}}" width="45" height="50" /> </span> <span display="inline-block">&nbsp;&nbsp;&nbsp;</span>
+			</li>
+		</ul>
+	</div>
+	<app-child [team] = "selectedTeam"></app-child>
+
+</div>
+
+
+
+<!--<nav class="nav" *ngFor="let team of teams?.teams" (click)="onSelect(team)">
+ 		<img src="{{team.crestUrl}}" width="45" height="50" />
+ 	</nav>
+	<app-child [team] = "selectedTeam"></app-child>-->
+
+	<!--<div class="container" align="right">
+ 		<table>
+ 			 <tr>
+				<th class="items" *ngFor="let team of teams?.teams" (click)="onSelect(team)"> <span> <img class="pointer" src="{{team.crestUrl}}" width="45" height="50" /> </span> <span align="right" display="inline-block">&nbsp;&nbsp;</span> 
+				</th>
+			</tr>
+		</table>
+		<br><br>
+	</div>-->

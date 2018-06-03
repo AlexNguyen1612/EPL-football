@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-16LE"?>
+<!ELEMENT assignment (team, submissionDate, dueDate, marker)>
+<!ATTLIST assignment subject CDATA #REQUIRED>
+<!ELEMENT member (#PCDATA)>
+<!ELEMENT team (member)+>
+<!ELEMENT submissionDate (#PCDATA)>
+<!ELEMENT dueDate (#PCDATA)>
+<!ELEMENT marker (#PCDATA)>

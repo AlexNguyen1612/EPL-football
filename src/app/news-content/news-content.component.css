@@ -1,0 +1,9 @@
+#news {
+	color: #38003C;
+	font-weight: bold;
+}
+
+.articleHeader, #headerRow {
+	background-color: #38003C; 
+	color: white;
+}

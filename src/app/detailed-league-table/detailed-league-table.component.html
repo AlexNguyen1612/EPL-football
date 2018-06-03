@@ -1,0 +1,160 @@
+
+<div class = "container-fluid">
+<div class = "banner">
+<img src="assets/images/premier-league-banner.png" width = "100%" />
+<div class = "banner-text">League Table </div>
+</div>
+
+<br><br>
+
+
+<div class = "row">
+<table class = "table table-hover col-8 shadow-lg mt-0" border-bottom = "solid 1px black" >
+<thead class = "thead-dark">
+<tr>
+ <th style="width:4%">#</th>
+ <th style="width:2%"></th>
+ <th style="width:35%">Team</th>
+ <th style="width:3%">P</th>
+ <th style="width:3%">W</th>
+ <th style="width:3%">D</th>
+ <th style="width:3%">L</th>
+ <th style="width:3%">G</th>
+ <th style="width:3%">GA</th>
+ <th style="width:3%">GD</th>
+ <th style="width:3%">PTS</th>
+ </tr>  
+</thead>
+<tbody *ngFor = "let team of teams?.standing,let i = index">   
+ <tr id = "{{'top'+ i}}">
+ <td >{{team.position}}</td>
+ <td><div *ngIf = "teams.matchday == 38 && team.position == 1"><img src ="assets/images/premier-league-trophy.png"/></div></td>     
+ <td ><img src = "{{team.crestURI}}" width ="30px" height="30px" />        <span id ="tooltip"(click)="getUrl(team._links.team.href);getResults(team.wins,team.draws,team.losses);showLoader()" class = "performanceInfo">{{team.teamName}} <span class="tooltiptext">More Info</span></span>
+    </td> 
+ <td>{{team.playedGames}}</td>
+ <td>{{team.wins}}</td>
+ <td>{{team.draws}}</td>
+ <td>{{team.losses}}</td>
+ <td>{{team.goals}}</td>
+ <td>{{team.goalsAgainst}}</td>
+ <td>{{team.goalDifference}}</td>
+ <td>{{team.points}}</td>
+ </tr>
+</tbody>
+</table>
+
+
+<div class = "moreInfo col-3  mt-0">
+
+<div class = "last5games" *ngIf = "fixturesUrl">
+<h5>Last 5 games:</h5>
+
+
+<div *ngIf = "showDiv" class = "dataLoader"></div>
+
+<div class ="results" *ngIf = "showDiv == false">
+<table >
+<thead>
+<tr>
+<th><p style = "float: left;margin-left:10px">Home</p> <p style = "float: right;margin-right:20px">Away</p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+ <span *ngFor = "let fixture of fixtures?.fixtures">
+ <span *ngIf = "fixture.matchday > 33">
+   <span *ngFor = "let hometeam of teams?.standing">
+     <span *ngIf = "hometeam.teamName == fixture.homeTeamName">
+<td><img src = "{{hometeam.crestURI}}" style = "margin:7px 10px" width ="50px" height="50px" /> </td>
+ </span>
+ </span>
+<td>{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}} </td>
+ <span *ngFor = "let awayteam of teams?.standing">
+   <span *ngIf = "awayteam.teamName == fixture.awayTeamName">
+ <td><img src = "{{awayteam.crestURI}}" style = "margin:7px 15px" width ="50px" height="50px" /></td>
+ <br>
+</span>
+</span>
+ </span>
+</span>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+<div class = "row">   
+<div [hidden]="!fixturesUrl">
+<canvas id="canvas" style='width:300px;height:300px'>{{chart}}</canvas>
+ </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+	<div class="container">
+		<div *ngFor="let standing of standings?.standing; let i = index ">
+			<div>{{most1Goals(standing.home.goals, standing.away.goals, i)}}</div>
+		</div>
+
+		<div *ngFor="let standing of standings?.standing; let i = index ">
+			<div>{{most2Goals(standing.home.goals, standing.away.goals, i)}}</div>
+		</div>
+
+		<div *ngFor="let standing of standings?.standing; let i = index ">
+			<div>{{most3Goals(standing.home.goals, standing.away.goals, i)}}</div>
+		</div>
+
+		<div align="center"><h4> Most home goals </h4></div>
+		<br>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="text-center" scope="col">Position</th>
+						<th class="text-center" scope="col">Team Name</th>
+						<th class="text-center" scope="col">Team Crest</th>
+						<th class="text-center" scope="col">PL</th>
+						<th class="text-center" scope="col">GF(HG)</th>
+					</tr>
+				</thead>
+				<tbody *ngFor="let standing of standings?.standing; let i = index ">
+					<tr *ngIf="i==homeIndex1 || i==homeIndex2 || i==homeIndex3 ">
+						<td align="center">{{standing.position}}</td>
+						<td align="center">{{standing.teamName}}</td>
+						<td align="center"><img src="{{standing.crestURI}}" width="30" height="30" /></td>
+						<td align="center">{{standing.playedGames}}</td>
+						<td align="center">{{standing.goals}}(<b>{{standing.home.goals}}</b>)</td>
+					</tr>
+				</tbody>
+			</table>
+		<br><br>
+
+		<div align="center"><h4> Most away goals </h4></div>
+		<br>
+		
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="text-center" scope="col">Position</th>
+						<th class="text-center" scope="col">Team Name</th>
+						<th class="text-center" scope="col">Team Crest</th>
+						<th class="text-center" scope="col">PL</th>
+						<th class="text-center" scope="col">GF(AG)</th>
+					</tr>
+				</thead>
+				<tbody *ngFor="let standing of standings?.standing; let i = index ">
+					<tr *ngIf="i==awayIndex1 || i==awayIndex2 || i==awayIndex3 ">
+						<td align="center">{{standing.position}}</td>
+						<td align="center">{{standing.teamName}}</td>
+						<td align="center"><img src="{{standing.crestURI}}" width="30" height="30" /></td>
+						<td align="center">{{standing.playedGames}}</td>
+						<td align="center">{{standing.goals}}(<b>{{standing.away.goals}}</b>)</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>	

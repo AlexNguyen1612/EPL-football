@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-16LE"?>
+<xs:schema>
+	<xs:element name="assignment">
+	<xs:attribute name="subject" type="xs:interger"/>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="team">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="member" type="xs:integer"/>
+							<xs:element name="member" type="xs:integer"/>
+							<xs:element name="member" type="xs:integer"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="submissionDate" type="xs:date"/>
+				<xs:element name="dueDate" type="xs:date"/>
+				<xs:element name="marker" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

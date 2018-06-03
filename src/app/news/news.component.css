@@ -1,0 +1,19 @@
+.container {
+ border-color: #663399; 
+}
+
+#news1, #news2, #news3, #news4, #news5 {
+	background-color: #38003C;
+	color: white;
+	border-color: #663399; 
+	border-style: solid; 
+	cursor: pointer;
+	border-width: 0.25px;
+}
+
+
+.cap {
+	font-size: 30px;
+	margin-left: 10px;
+}
+

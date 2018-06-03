@@ -1,0 +1,102 @@
+.table {
+ margin-left: 50px;
+}
+
+.performanceInfo {
+ cursor: pointer;
+}
+
+.moreInfo {
+ width: 100%;
+ margin-left: 75px;
+}
+
+.last5games {
+ height:400px;
+ width:100%;
+}
+
+.results {
+ margin: auto;
+ height:200px;
+ width:300px;
+}
+
+.dataLoader {
+ border: 10px solid #E9E7E7;
+ border-top: 10px solid purple;
+ border-radius: 50%;
+ width: 80px;
+ height: 80px;
+ animation: spin 2s linear infinite;
+ margin: 50px;
+ 
+}
+
+.container-fluid {
+ margin-top: 80px;
+}
+
+.banner {
+ position: relative;
+}
+
+
+.banner-text{
+ position: absolute;
+ top: 40%;
+ left: 10%;
+ color: white;
+ font-size: 40px;
+ font-weight: 500;
+ font-family:serif;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Tooltip container */
+#tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+#top0 {
+ background-color:#7CFC00 ;
+}
+
+#top1,#top2,#top3 {
+ background-color: #c1fcc1 ;
+}
+
+#top19 {
+ background-color:#E56567;
+}
+
+#top17,#top18 {
+ background-color:#EFA2A3;
+}
+
+
+/* Tooltip text */
+#tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    left:103%;
+    top: 20px
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+#tooltip:hover .tooltiptext {
+    visibility: visible;
+}
