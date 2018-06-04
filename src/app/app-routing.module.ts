@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule,Routes} from '@angular/router';
 
 import { DetailedLeagueTableComponent } from './detailed-league-table/detailed-league-table.component';
-import { LeagueTableComponent } from './league-table/league-table.component';
+
 import { ChildComponent } from './child/child.component';
 import { AppComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';

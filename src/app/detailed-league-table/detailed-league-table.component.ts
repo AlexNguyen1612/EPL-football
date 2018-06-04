@@ -18,7 +18,7 @@ import { Fixture } from '../fixture';
 })
 export class DetailedLeagueTableComponent implements OnInit {
   
-  fixtures:Fixture[];
+  fixtures2:Fixture[];
   total:number=0;
 
   homeIndex1:number=0;
@@ -154,7 +154,7 @@ export class DetailedLeagueTableComponent implements OnInit {
   
   getFixtures(): void {
     console.log("inside getFixtures");
-  	this.personalService.getFixtures().subscribe(fixtures => this.fixtures = fixtures);
+  	this.personalService.getFixtures().subscribe(fixtures => this.fixtures2 = fixtures);
   }
 
   getLeague():void {

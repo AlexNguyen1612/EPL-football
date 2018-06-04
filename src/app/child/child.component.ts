@@ -9,7 +9,6 @@ import { League } from '../league';
 
 import { PlayerService } from '../player.service';
 
-import { FixtureService } from '../fixture.service';
 
 import { TeamService } from '../team.service';
 
