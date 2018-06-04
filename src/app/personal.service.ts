@@ -41,13 +41,13 @@ export class PersonalService {
   }
 
   getUrls(urlss: string): void {
-  	this.urls = urlss;
+  	this.urls = "https://" + urlss.substring(7,urlss.length);
   	//console.log("service getUrls used", this.urls);
   }
 
   getCrest(crest1: string, crest2: string): void {
-    this.awayCrest = crest1;
-    this.homeCrest = crest2;
+    this.awayCrest = "https://" + crest1.substring(7,crest1.length);
+    this.homeCrest = "https://" + crest2.substring(7,crest2.length);
     //console.log("service getCrest used", this.awayCrest, this.homeCrest);
   }
 

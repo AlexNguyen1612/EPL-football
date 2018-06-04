@@ -24,8 +24,9 @@ export class TeamDataService {
   }
   
   getUrl(apiUrl: string): void{
-   this.fixturesUrl = apiUrl;
-   this.fixturesUrl = this.fixturesUrl + "/fixtures";
+   this.fixturesUrl = apiUrl.substring(7,apiUrl.length);
+   console.log (apiUrl.substring(7,apiUrl.length));
+   this.fixturesUrl = "https://" + this.fixturesUrl + "/fixtures";
    console.log(this.fixturesUrl);
   }
   

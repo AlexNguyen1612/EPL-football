@@ -24,8 +24,8 @@ export class PlayerService {
 
   getLink(link1: string, link2: string): void {
   	console.log("getLink child component ");
-  	this.playersUrl = link1;
-  	this.fixturesUrl = link2;
+  	this.playersUrl = "https://" + link1.substring(7,link1.length);
+  	this.fixturesUrl = "https://" + link2.substring(7,link2.length);
   }
 
   getPlayers(): Observable<Player[]> {
