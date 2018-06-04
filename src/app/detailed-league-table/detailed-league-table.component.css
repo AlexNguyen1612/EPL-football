@@ -1,5 +1,6 @@
-.table {
+.leagueTable {
  margin-left: 50px;
+ width: 500px;
 }
 
 .performanceInfo {
@@ -9,6 +10,7 @@
 .moreInfo {
  width: 100%;
  margin-left: 75px;
+ float: right; 
 }
 
 .last5games {
