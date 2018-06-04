@@ -25,7 +25,7 @@
  <th style="width:3%">PTS</th>
  </tr>  
 </thead>
-<tbody *ngFor = "let team of teams['standing'],let i = index">   
+<tbody *ngFor = "let team of teams?.standing,let i = index">   
  <tr id = "{{'top'+ i}}">
  <td >{{team.position}}</td>
  <td><div *ngIf = "teams.matchday == 38 && team.position == 1"><img src ="assets/images/premier-league-trophy.png"/></div></td>     
