@@ -5,7 +5,7 @@ import { TeamFixtures } from '../team-fixtures';
 import { Chart } from 'chart.js'
 import 'chart.piecelabel.js'
 
-import { PersonalService } from '../Personal.service';
+import { PersonalService } from '../personal.service';
 
 import { League } from '../league';
 

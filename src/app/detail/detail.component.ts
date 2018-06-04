@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Teams } from '../Teams';
-import { PersonalService } from '../Personal.service';
+import { Teams } from '../teams';
+import { PersonalService } from '../personal.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 

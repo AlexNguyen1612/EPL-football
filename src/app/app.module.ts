@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TeamService } from './team.service';
 import { PlayerService } from './player.service';
 
-import { PersonalService } from './Personal.service';
+import { PersonalService } from './personal.service';
 import { TeamDataService } from './team-data.service';
 
 import { HttpClientModule } from '@angular/common/http';

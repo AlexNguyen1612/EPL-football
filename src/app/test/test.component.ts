@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonalService } from '../Personal.service';
-import { Teams } from '../Teams';
+import { PersonalService } from '../personal.service';
+import { Teams } from '../teams';
 
 @Component({
   selector: 'app-test',
