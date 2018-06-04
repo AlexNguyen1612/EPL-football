@@ -17,9 +17,9 @@ export class TeamService {
 
   constructor(private http: HttpClient) { }
 
-  private teamsUrl = 'http://api.football-data.org/v1/competitions/445/teams';
+  private teamsUrl = 'https://api.football-data.org/v1/competitions/445/teams';
 
-  private leagueUrl = 'http://api.football-data.org/v1/competitions/445/leagueTable';
+  private leagueUrl = 'https://api.football-data.org/v1/competitions/445/leagueTable';
 
   getTeams(): Observable<Team[]> {
   	console.log("team service");

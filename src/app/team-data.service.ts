@@ -15,7 +15,7 @@ export class TeamDataService {
   
   constructor( private http : HttpClient ) { };
   
-  private teamsUrl = 'http://api.football-data.org/v1/competitions/445/leagueTable';
+  private teamsUrl = 'https://api.football-data.org/v1/competitions/445/leagueTable';
 
   private headers ={ headers :{'X-Auth-Token' : 'e5e5a21d678a45f1946601bf724e440a' } };
   
