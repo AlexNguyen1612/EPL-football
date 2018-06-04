@@ -12,11 +12,11 @@ const httpOptions = {
 
 @Injectable()
 export class PersonalService {
-  private url = 'http://api.football-data.org/v1/competitions/445/fixtures';
+  private url = 'https://api.football-data.org/v1/competitions/445/fixtures';
 
-  private detail = 'http://api.football-data.org/v1/fixtures/';
+  private detail = 'https://api.football-data.org/v1/fixtures/';
 
-  private url2 = 'http://api.football-data.org/v1/competitions/445/teams';
+  private url2 = 'https://api.football-data.org/v1/competitions/445/teams';
   
   private urls: string;
   
@@ -26,9 +26,9 @@ export class PersonalService {
   
   team: Teams;
   
-  private leagueUrl = 'http://api.football-data.org/v1/competitions/445/leagueTable';
+  private leagueUrl = 'https://api.football-data.org/v1/competitions/445/leagueTable';
 
-  private fixturesUrl = 'http://api.football-data.org/v1/competitions/445/fixtures';
+  private fixturesUrl = 'https://api.football-data.org/v1/competitions/445/fixtures';
   
   constructor(private http: HttpClient) { }
 
