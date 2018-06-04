@@ -2,7 +2,7 @@
  	<br>
  	<div align="center">
 		<ul>
-			<li class="items" *ngFor="let team of teams?.teams" (click)="onSelect(team)"> <span> <img class="pointer" src="{{team.crestUrl}}" width="45" height="50" /> </span> <span display="inline-block">&nbsp;&nbsp;&nbsp;</span>
+			<li class="items" *ngFor="let team of teams['teams']" (click)="onSelect(team)"> <span> <img class="pointer" src="{{team.crestUrl}}" width="45" height="50" /> </span> <span display="inline-block">&nbsp;&nbsp;&nbsp;</span>
 			</li>
 		</ul>
 	</div>

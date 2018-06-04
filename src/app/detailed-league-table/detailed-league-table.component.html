@@ -25,7 +25,7 @@
  <th style="width:3%">PTS</th>
  </tr>  
 </thead>
-<tbody *ngFor = "let team of teams?.standing,let i = index">   
+<tbody *ngFor = "let team of teams['standing'],let i = index">   
  <tr id = "{{'top'+ i}}">
  <td >{{team.position}}</td>
  <td><div *ngIf = "teams.matchday == 38 && team.position == 1"><img src ="assets/images/premier-league-trophy.png"/></div></td>     
@@ -86,7 +86,7 @@
 </div>
 <div class = "row">   
 <div [hidden]="!fixturesUrl">
-<canvas id="canvas" style='width:300px;height:300px'>{{chart}}</canvas>
+<canvas id="canvas" style='width:300px;height:300px'>{{pieChart}}</canvas>
  </div>
 </div>
 </div>
@@ -97,15 +97,15 @@
 
 
 	<div class="container">
-		<div *ngFor="let standing of standings?.standing; let i = index ">
+		<div *ngFor="let standing of standings['standing']; let i = index ">
 			<div>{{most1Goals(standing.home.goals, standing.away.goals, i)}}</div>
 		</div>
 
-		<div *ngFor="let standing of standings?.standing; let i = index ">
+		<div *ngFor="let standing of standings['standing']; let i = index ">
 			<div>{{most2Goals(standing.home.goals, standing.away.goals, i)}}</div>
 		</div>
 
-		<div *ngFor="let standing of standings?.standing; let i = index ">
+		<div *ngFor="let standing of standings['standing']; let i = index ">
 			<div>{{most3Goals(standing.home.goals, standing.away.goals, i)}}</div>
 		</div>
 
@@ -122,7 +122,7 @@
 						<th class="text-center" scope="col">GF(HG)</th>
 					</tr>
 				</thead>
-				<tbody *ngFor="let standing of standings?.standing; let i = index ">
+				<tbody *ngFor="let standing of standings['standing']; let i = index ">
 					<tr *ngIf="i==homeIndex1 || i==homeIndex2 || i==homeIndex3 ">
 						<td align="center">{{standing.position}}</td>
 						<td align="center">{{standing.teamName}}</td>
@@ -147,7 +147,7 @@
 						<th class="text-center" scope="col">GF(AG)</th>
 					</tr>
 				</thead>
-				<tbody *ngFor="let standing of standings?.standing; let i = index ">
+				<tbody *ngFor="let standing of standings['standing']; let i = index ">
 					<tr *ngIf="i==awayIndex1 || i==awayIndex2 || i==awayIndex3 ">
 						<td align="center">{{standing.position}}</td>
 						<td align="center">{{standing.teamName}}</td>
