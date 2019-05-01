@@ -2,7 +2,7 @@
 
 This is an really practical assignment for a front-end course, in which we had to build a football-news website using Angular and Bootstrap. All the match, team data was taken from http://api.football-data.org.
 Here is our final product: https://premier-league-news.herokuapp.com/news  
-It doesn't look that good but we tried!
+It doesn't look that good but we tried our best!
 
 Update: I think that our key for the api has expired so we can no longer see the data 
 ## Development server
