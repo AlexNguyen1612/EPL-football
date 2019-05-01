@@ -1,7 +1,10 @@
 # EPL-football
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+This is an really practical assignment for a front-end course, in which we had to build a football-news website using Angular and Bootstrap. All the match, team data was taken from http://api.football-data.org.
+Here is our final product: https://premier-league-news.herokuapp.com/news  
+It doesn't look that good but we tried!
 
+Update: I think that our key for the api has expired so we can no longer see the data 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
